@@ -133,7 +133,16 @@
 
     // Countdown timer
     var countdown = document.getElementById('countdown');
-    var endTime = new Date().getTime() + 35 * 24 * 60 * 60 * 1000; // 35 days
+    var endTime;
+
+    // Check if end time is stored in local storage
+    if (localStorage.getItem('endTime')) {
+      endTime = localStorage.getItem('endTime');
+    } else {
+      endTime = new Date().getTime() + 35 * 24 * 60 * 60 * 1000; // 35 days
+      localStorage.setItem('endTime', endTime);
+    }
+
     setInterval(function() {
       var now = new Date().getTime();
       var distance = endTime - now;

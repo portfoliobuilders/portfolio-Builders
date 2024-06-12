@@ -103,55 +103,48 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="content">
-      <h1 class="title">Elevate Your Digital Presence with Portfolix.tech</h1>
-      <h2 class="subtitle">We are launching Soon!</h2>
-      <p class="countdown" id="countdown"></p>
-      <p class="description">Tired of the same old digital experience? At Portfolix.tech, we're revolutionizing the way businesses come to life online. We combine award-winning design and development expertise with the unrelenting energy and fresh ideas of our team to create digital solutions that captivate, engage, and propel you forward.</p>
-      <form id="email-form">
-        <input type="email" class="email-input" placeholder="Enter your email" required>
-        <button type="submit" class="notify-button">Notify Us</button>
-      </form>
-      <p>Be in the know! Enter your email for launch updates and early access to our services.</p>
-      <div class="powered-by">
-        <span>Powered by</span>
-        <img src="Frame.png" alt="Powered by Portfolix">
+    <div class="container">
+      <div class="content">
+        <h1 class="title">Elevate Your Digital Presence with Portfolix.tech</h1>
+        <h2 class="subtitle">We are launching Soon!</h2>
+        <p class="countdown" id="countdown"></p>
+        <p class="description">Tired of the same old digital experience? At Portfolix.tech, we're revolutionizing the way businesses come to life online. We combine award-winning design and development expertise with the unrelenting energy and fresh ideas of our team to create digital solutions that captivate, engage, and propel you forward.</p>
+        <form id="email-form">
+          <input type="email" class="email-input" placeholder="Enter your email" required>
+          <button type="submit" class="notify-button">Notify Us</button>
+        </form>
+        <p>Be in the know! Enter your email for launch updates and early access to our services.</p>
+        <div class="powered-by">
+          <span>Powered by</span>
+          <img src="Frame.png" alt="Powered by Portfolix">
+        </div>
       </div>
     </div>
-  </div>
-
-  <script>
-    // Function to submit email
-    document.getElementById('email-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      var email = document.querySelector('.email-input').value;
-      // You can send email using JavaScript here
-      console.log('Email submitted:', email);
-      // Optionally, you can display a success message or redirect to a thank you page
-    });
-
-    // Countdown timer
-    var countdown = document.getElementById('countdown');
-    var endTime;
-
-    // Check if end time is stored in local storage
-    if (localStorage.getItem('endTime')) {
-      endTime = localStorage.getItem('endTime');
-    } else {
-      endTime = new Date().getTime() + 35 * 24 * 60 * 60 * 1000; // 35 days
-      localStorage.setItem('endTime', endTime);
-    }
-
-    setInterval(function() {
-      var now = new Date().getTime();
-      var distance = endTime - now;
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      countdown.innerHTML = days + "days " + hours + "hours " + minutes + "minutes " + seconds + "seconds " + "Left";
-    }, 1000);
-  </script>
-</body>
-</html>
+  
+    <script>
+      // Function to submit email
+      document.getElementById('email-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var email = document.querySelector('.email-input').value;
+        console.log('Email submitted:', email);
+      });
+  
+      // Countdown timer
+      var countdown = document.getElementById('countdown');
+  
+      // Set the start and end dates
+      var startDate = new Date('2024-06-12').getTime();
+      var endDate = new Date('2024-07-15').getTime();
+  
+      setInterval(function() {
+        var now = new Date().getTime();
+        var distance = endDate - now;
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        countdown.innerHTML = days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds " + " Left";
+      }, 1000);
+    </script>
+  </body>
+  </html>

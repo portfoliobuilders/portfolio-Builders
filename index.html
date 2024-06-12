@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-image: url('bg.jpg');
+      background-size: cover;
+      color: #FFFFFF;
+    }
+    .container {
+      position: relative;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .content {
+      text-align: center;
+    }
+    .title {
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 1.2;
+      animation: slideIn 1s ease-out forwards;
+    }
+    .subtitle {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1.2;
+      animation: slideIn 1s ease-out forwards;
+    }
+    .description {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .email-input {
+      border: 2px solid #FFFFFF;
+      border-radius: 5px;
+      padding: 10px;
+      width: 100%;
+      max-width: 300px;
+      margin: 20px auto;
+      color: #FFFFFF;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .notify-button {
+      background-color: #676767;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 24px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-left: 10px;
+    }
+    .notify-button:hover {
+      background-color: #555555;
+    }
+    .powered-by {
+      margin-top: 20px;
+    }
+    .powered-by img {
+      width: 100px;
+      height: auto;
+      margin-top: 10px;
+    }
+    .countdown {
+      font-weight: 500;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    @media only screen and (max-width: 768px) {
+      .title {
+        font-size: 28px;
+      }
+      .subtitle {
+        font-size: 20px;
+      }
+      .description {
+        font-size: 14px;
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <h1 class="title">Elevate Your Digital Presence with Portfolix.tech</h1>
+      <h2 class="subtitle">We are launching Soon!</h2>
+      <p class="countdown" id="countdown"></p>
+      <p class="description">Tired of the same old digital experience? At Portfolix.tech, we're revolutionizing the way businesses come to life online. We combine award-winning design and development expertise with the unrelenting energy and fresh ideas of our team to create digital solutions that captivate, engage, and propel you forward.</p>
+      <form id="email-form">
+        <input type="email" class="email-input" placeholder="Enter your email" required>
+        <button type="submit" class="notify-button">Notify Us</button>
+      </form>
+      <p>Be in the know! Enter your email for launch updates and early access to our services.</p>
+      <div class="powered-by">
+        <span>Powered by</span>
+        <img src="Frame.png" alt="Powered by Portfolix">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Function to submit email
+    document.getElementById('email-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var email = document.querySelector('.email-input').value;
+      // You can send email using JavaScript here
+      console.log('Email submitted:', email);
+      // Optionally, you can display a success message or redirect to a thank you page
+    });
+
+    // Countdown timer
+    var countdown = document.getElementById('countdown');
+    var endTime = new Date().getTime() + 35 * 24 * 60 * 60 * 1000; // 35 days
+    setInterval(function() {
+      var now = new Date().getTime();
+      var distance = endTime - now;
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdown.innerHTML = days + "days " + hours + "hours " + minutes + "minutes " + seconds + "seconds " + "Left";
+    }, 1000);
+  </script>
+</body>
+</html>
